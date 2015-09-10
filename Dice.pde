@@ -1,15 +1,17 @@
 int m = 20;
 float s = m* .6;
+int count = 0;
 
 void setup()
 {
 	background(255);
-	size(880,880);
+	size(880,840);
 	noLoop();
 }
 
 void draw()
 {
+	//your code here
 	for (int a = 0; a <= m*90; a = a + m*4)
 	{
 		for (int b = 0; b <= m*90; b = b + m*4)
@@ -24,6 +26,7 @@ void draw()
 void mousePressed()
 {
 	redraw();
+	count = 0;
 }
 
 class Die //models one single dice cube
@@ -37,7 +40,7 @@ class Die //models one single dice cube
 		x1 = x;
 		y1 = y;
 		num = (int)((Math.random()*6)+1);
-
+		count = count + num;
 	}
 
 	void roll()
@@ -92,5 +95,12 @@ class Die //models one single dice cube
 		stroke(255,255,255);
      	fill(255,200,100);
   		rect(x1,y1,m*4,m*4,m*.8);
+
+  		//Displays total dice value
+  		fill(0);
+  		rect(0, 800, 880, 840);
+  		fill(255);
+  		textSize(30);
+  		text("Total: " + count, 20, 830);
 	}
 }
