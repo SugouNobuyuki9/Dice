@@ -1,106 +1,42 @@
-int m = 20;
-float s = m* .6;
-int count = 0;
 
 void setup()
 {
-	background(255);
-	size(880,840);
-	noLoop();
+  size(200,200);
+  pickMap();
 }
 
-void draw()
-{
-	//your code here
-	for (int a = 0; a <= m*90; a = a + m*4)
-	{
-		for (int b = 0; b <= m*90; b = b + m*4)
-		{
-			Die dice = new Die(a,b);
-			dice.show();
-			dice.roll();
-		}
-	}
-}
+void draw(){}
 
 void mousePressed()
 {
-	redraw();
-	count = 0;
+  setup();
 }
 
-class Die //models one single dice cube
+void pickMap()
 {
-	//variable declarations here
-	int x1, y1, num;
-	Die(int x, int y) 
-	{
-		//variable initializations here
-		int m = 200;
-		x1 = x;
-		y1 = y;
-		num = (int)((Math.random()*6)+1);
-		count = count + num;
-	}
+  background(200,200,200);
+  int num = (int)(Math.random()*20)+1;
+  fill(0);
+  if(num == 1) text("Aegis", 10, 10);
+  else if (num == 2) text("Dwarven", 10, 10);
+  else if (num == 3) text("Entangled", 10, 10);
+  else if (num == 4) text("Frostbite", 10, 10);
+  else if (num == 5) text("Frostbite", 10, 10);
+  else if (num == 6) text("Frozen Throne", 10, 10);
+  else if (num == 7) text("Haunted", 10, 10);
+  else if (num == 8) text("LongIsland", 10, 10);
+  else if (num == 9) text("Martian", 10, 10);
+  else if (num == 10) text("Onion Ring 2", 10, 10);
+  else if (num == 11) text("Overfall", 10, 10);
+  else if (num == 12) text("Shire", 10, 10);
+  else if (num == 13) text("Siege", 10, 10);
+  else if (num == 14) text("Skychurch", 10, 10);
+  else if (num == 15) text("Steampunk", 10, 10);
+  else if (num == 16) text("Towers", 10, 10);
+  else if (num == 17) text("Tribute", 10, 10);
+  else if (num == 18) text("Tundra", 10, 10);
+  else if (num == 19) text("Siege", 10, 10);
+  else if (num == 20) text("Onion Ring 2", 10, 10);
 
-	void roll()
-	{
-		noStroke();
-		fill(0);
-		//your code here
-		if(num == 1) 
-		{
-			ellipse(x1+40, y1+40, s, s);
-		}
-		else if(num == 2)
-		{
-			ellipse(x1+20, y1+20, s, s);
-			ellipse(x1+60, y1+60, s, s);
-		}
-		else if(num == 3)
-		{
-			ellipse(x1+20, y1+20, s, s);
-			ellipse(x1+40, y1+40, s, s);
-			ellipse(x1+60, y1+60, s, s);
-		}
-		else if(num == 4)
-		{
-			ellipse(x1+20, y1+20, s, s);
-			ellipse(x1+60, y1+20, s, s);
-			ellipse(x1+20, y1+60, s, s);
-			ellipse(x1+60, y1+60, s, s);
-		}
-		else if(num == 5)
-		{
-			ellipse(x1+20, y1+20, s, s);
-			ellipse(x1+60, y1+20, s, s);
-			ellipse(x1+20, y1+60, s, s);
-			ellipse(x1+60, y1+60, s, s);
-			ellipse(x1+40, y1+40, s, s);
-		}
-		else if(num == 6)
-		{
-			ellipse(x1+20, y1+20, s, s);
-			ellipse(x1+60, y1+20, s, s);
-			ellipse(x1+20, y1+60, s, s);
-			ellipse(x1+60, y1+60, s, s);
-			ellipse(x1+40, y1+20, s, s);
-			ellipse(x1+40, y1+60, s, s);
-		}
-	}
-
-	void show()
-	{
-		//your code here
-		stroke(255,255,255);
-     	fill(255,200,100);
-  		rect(x1,y1,m*4,m*4,m*.8);
-
-  		//Displays total dice value
-  		fill(0);
-  		rect(0, 800, 880, 840);
-  		fill(255);
-  		textSize(30);
-  		text("Total: " + count, 20, 830);
-	}
 }
+
